@@ -15,6 +15,10 @@ body{
     width: 100vw;
 }
 
+.content a {
+    text-decoration: none;
+}
+
 @media screen and (min-width: 992){
     .content {
         max-width: 992px;
