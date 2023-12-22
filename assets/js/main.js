@@ -1,6 +1,7 @@
 
 const pokemonList = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreButton');
+const pokemonContent = document.getElementById('pokemonContent');
 
 const maxRecords = 151;
 const limit = 10;
@@ -8,9 +9,9 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon){
     return `
-        <a href="./pokemon_about.html">
+        <a href="./pokemon_about.html" onclick="savePokemonId(${pokemon.number})">
             <li class="pokemon ${pokemon.type}">
-            <span class="number">#${pokemon.id}</span>
+            <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
                 <div class="detail">
                     <ol class="types">
@@ -46,4 +47,11 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItems(offset, limit)
     }
 })
+
+
+function savePokemonId(number){
+    localStorage.setItem('pokemonId', number);
+}
+
+
     
