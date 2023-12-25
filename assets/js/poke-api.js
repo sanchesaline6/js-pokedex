@@ -22,8 +22,15 @@ function convertPokeApiDetailToPokemon(pokeDetail){
     pokemon.height = pokeDetail.height;
     pokemon.weight = pokeDetail.weight
 
+    const moves = pokeDetail.moves.map(moveSlot => moveSlot.move.name)
+    const [move] = moves;
+
+    pokemon.moves = moves;
+    pokemon.move = move;
+
     return pokemon;
 }
+
 pokeApi.getPokemonDetail = (pokemon) => {
     return fetch(pokemon.url)
         .then((response) => response.json())

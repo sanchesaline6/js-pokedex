@@ -8,4 +8,6 @@ class Pokemon {
     ability;
     height;
     weight;
+    move;
+    moves = [];
 }
